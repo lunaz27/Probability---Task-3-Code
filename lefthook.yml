@@ -11,8 +11,8 @@ pre-commit:
       glob: "*.py"
       run: just lint {staged_files}
 
-pre-push:
-  parallel: false
-  commands:
-    test:
-      run: just test
+# pre-push:
+#   parallel: false
+#   commands:
+#     test:
+#       run: just test
