@@ -34,19 +34,19 @@
                 python-pkgs: with python-pkgs; [
                   debugpy
 
-                  pytest
-                  pytest-cov
-                  pytest-instafail
-                  pytest-md-report
-                  # pytest-sugar
-                  # pytest-mock
-
                   numpy
                   pandas
                   pandas-stubs
                   scipy
                   statsmodels
                   matplotlib
+
+                  # pytest
+                  # pytest-cov
+                  # pytest-instafail
+                  # pytest-md-report
+                  # pytest-sugar
+                  # pytest-mock
                 ]
               ))
             ];

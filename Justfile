@@ -24,12 +24,3 @@ test: lint format
 entr:
     #!/usr/bin/env bash
     fd . src/ tests/ | entr -c bash -c "just run"
-
-report:
-    echo "  REPORT  tests/"
-    pytest -vvv --md-report --md-report-verbose=2 --md-report-show-duration --md-report-output=REPORT.md
-
-clean:
-    #!/usr/bin/env bash
-    [[ -f REPORT.md ]] && echo "  CLEAN   REPORT.md" && rm -f REPORT.md || true
-    [[ -f .coverage ]] && echo "  CLEAN   .coverage" && rm -f .coverage || true
