@@ -1,0 +1,76 @@
+
+# ── Task 3a: Variables selection ────────────────────────────────────────────── 
+Predictor (X): defect_density_per_cm2
+Response  (Y): die_yield_pct
+Valid observations (n): 10000
+
+       defect_density_per_cm2  die_yield_pct
+count              10000.0000     10000.0000
+mean                   0.1725        80.3016
+std                    0.0936        10.5775
+min                    0.0300        52.0000
+25%                    0.1050        73.6000
+50%                    0.1520        82.2000
+75%                    0.2230        88.4000
+max                    0.4400        98.2000
+
+# ── Task 3b: Pearson correlation ────────────────────────────────────────────── 
+Pearson r = -0.8798
+p-value   = 0.0000e+00
+
+# ── Task 3c & 3d: Simple Linear Regression (OLS) ──────────────────────────────
+Fitted equation: die_yield_pct = 97.4509 + (-99.4145) * defect_density_per_cm2
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          die_yield_pct   R-squared:                       0.774
+Model:                            OLS   Adj. R-squared:                  0.774
+Method:                 Least Squares   F-statistic:                 3.425e+04
+Date:                Fri, 20 Nov 2026   Prob (F-statistic):               0.00
+Time:                        03:44:07   Log-Likelihood:                -30339.
+No. Observations:               10000   AIC:                         6.068e+04
+Df Residuals:                    9998   BIC:                         6.070e+04
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==========================================================================================
+                             coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------
+const                     97.4509      0.105    924.350      0.000      97.244      97.658
+defect_density_per_cm2   -99.4145      0.537   -185.071      0.000    -100.468     -98.362
+==============================================================================
+Omnibus:                      128.636   Durbin-Watson:                   1.981
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              133.471
+Skew:                          -0.283   Prob(JB):                     1.04e-29
+Kurtosis:                       2.977   Cond. No.                         11.0
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+# ── Task 3e: Interval estimation for coefficients ───────────────────────────── 
+Intercept (beta0): est =   97.4509 | SE = 0.1054 | 95% CI = [97.2442, 97.6575]
+Slope     (beta1): est =  -99.4145 | SE = 0.5372 | 95% CI = [-100.4675, -98.3616]
+
+Residual Std Error = 5.0281 on df = 9998
+
+# ── Task 3f: Prediction of new Observations ─────────────────────────────────── 
+Chosen x0 (defect_density_per_cm2) = 0.15
+Point prediction (y_hat) = 82.5387%
+95% CI (Mean Response)   = [82.4373, 82.6401] (width = 0.2027)
+95% PI (New Observation) = [72.6820, 92.3954] (width = 19.7134)
+
+# ── Task 3g: Residual Diagnostics ───────────────────────────────────────────── 
+Residual mean = -3.7855e-14
+Residual std  = 5.0279
+Residual min  = -17.5148 | max = 14.4927
+
+# ── Task 3h: Coefficient of Determination (R^2) ─────────────────────────────── 
+Model R^2        = 0.774053 (77.41% of variance explained)
+Pearson r^2      = 0.774053
+Difference       = 2.22e-16
+
+# ── Task 3i: Transformation check ───────────────────────────────────────────── 
+Original   (Y ~ X)         : R^2 = 0.7741
+Log-Linear (ln(Y) ~ X)     : R^2 = 0.7742
+Linear-Log (Y ~ ln(X))     : R^2 = 0.7118
+Log-Log    (ln(Y) ~ ln(X)) : R^2 = 0.6839

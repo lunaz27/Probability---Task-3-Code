@@ -1,0 +1,11 @@
+# Python & Pytest
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.coverage
+REPORT.md
+
+# Nix environment
+.direnv/
+result
+result-*
