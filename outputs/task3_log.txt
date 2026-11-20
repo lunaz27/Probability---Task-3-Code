@@ -27,7 +27,7 @@ Dep. Variable:          die_yield_pct   R-squared:                       0.774
 Model:                            OLS   Adj. R-squared:                  0.774
 Method:                 Least Squares   F-statistic:                 3.425e+04
 Date:                Fri, 20 Nov 2026   Prob (F-statistic):               0.00
-Time:                        03:44:07   Log-Likelihood:                -30339.
+Time:                        06:00:38   Log-Likelihood:                -30339.
 No. Observations:               10000   AIC:                         6.068e+04
 Df Residuals:                    9998   BIC:                         6.070e+04
 Df Model:                           1                                         
@@ -46,6 +46,8 @@ Kurtosis:                       2.977   Cond. No.                         11.0
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+R-squared     = 0.7741
+Adj R-squared = 0.7740
 
 # ── Task 3e: Interval estimation for coefficients ───────────────────────────── 
 Intercept (beta0): est =   97.4509 | SE = 0.1054 | 95% CI = [97.2442, 97.6575]

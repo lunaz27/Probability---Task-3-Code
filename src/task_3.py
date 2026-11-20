@@ -72,6 +72,8 @@ def task_3cd(data: pd.DataFrame) -> RegressionResultsWrapper:
 
     print(f"Fitted equation: {Y_COL} = {b0:.4f} + ({b1:.4f}) * {X_COL}\n")
     print(model.summary())
+    print(f"R-squared     = {float(model.rsquared):.4f}")
+    print(f"Adj R-squared = {float(model.rsquared_adj):.4f}")
 
     return model
 
