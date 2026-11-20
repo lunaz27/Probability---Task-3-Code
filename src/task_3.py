@@ -212,6 +212,57 @@ def task_3hi(
     m_log_log = sm.OLS(np.log(y), sm.add_constant(np.log(x))).fit()
     print(f"Log-Log    (ln(Y) ~ ln(X)) : R^2 = {float(m_log_log.rsquared):.4f}")
 
+    # Comparing OG linear vs Candidate 1
+    FIGURES_PATH.mkdir(parents=True, exist_ok=True)
+    fig, axes = plt.subplots(2, 2, figsize=(11, 8))
+
+    specs = [
+        (
+            axes[0, 0],
+            model,
+            "Original Linear ($Y \\sim X$)",
+            "Fitted Values ($\\hat{y}$)",
+            "steelblue",
+        ),
+        (
+            axes[0, 1],
+            m_log_y,
+            "Log-Linear ($\\ln(Y) \\sim X$)",
+            "Fitted Values ($\\widehat{\\ln y}$)",
+            "darkorange",
+        ),
+        (
+            axes[1, 0],
+            m_log_x,
+            "Linear-Log ($Y \\sim \\ln(X)$)",
+            "Fitted Values ($\\hat{y}$)",
+            "seagreen",
+        ),
+        (
+            axes[1, 1],
+            m_log_log,
+            "Log-Log ($\\ln(Y) \\sim \\ln(X)$)",
+            "Fitted Values ($\\widehat{\\ln y}$)",
+            "mediumpurple",
+        ),
+    ]
+
+    for ax, m, title, xlabel, color in specs:
+        ax.scatter(m.fittedvalues, m.resid, alpha=0.15, s=8, color=color)
+        ax.axhline(0, color="crimson", linestyle="--", linewidth=1.5)
+        ax.set_title(f"{title}\n$R^2 = {float(m.rsquared):.4f}$")
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel("Residuals ($e$)")
+        ax.grid(True, linestyle=":", alpha=0.5)
+
+    fig.tight_layout()
+    fig.savefig(
+        FIGURES_PATH / "task_3i_comparison.png",
+        dpi=IMG_DPI,
+        bbox_inches="tight",
+    )
+    plt.close(fig)
+
 
 def run() -> None:
     df = load_data(DATA_PATH)
